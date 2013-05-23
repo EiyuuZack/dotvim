@@ -9,5 +9,8 @@ Create symlink:
 Switch to the `~/.vim` directory, and fetch submodules:
 
     cd ~/.vim
-    git submodule init
-    git submodule update
+    git submodule update --init
+
+Update submodules:
+
+    git submodule foreach git pull
