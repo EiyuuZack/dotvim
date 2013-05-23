@@ -60,7 +60,8 @@ set vb
 set backspace=2
 
 " Set the status line the way I like it
-set stl=%f\ %y%{'['.(&fenc==''?&enc:&fenc).']'}\ %m\ %r\ Line:\ %l/%L\ Col:\ %c\ Buf:\ #%n\ [%b][0x%B]
+set stl=%f\ %y%{'['.(&fenc==''?&enc:&fenc).']'}%m%r\ %l/%L\ %c\ #%n
+" set stl=%f\ %y%{'['.(&fenc==''?&enc:&fenc).']'}%m%r\ %l/%L\ %c\ #%n\ [%b][0x%B] " with ASCII codes
 
 " tell Vim to always put a status line in, even if there is only one
 " window
@@ -94,7 +95,7 @@ set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:f
 " the top and 8 lines from the bottom
 set scrolloff=8
 
-" Allow the cursor to go in to "invalid" places
+" Allow the cursor to go in to 'invalid' places
 "set virtualedit=all
 
 " Number of spaces that a <Tab> in the file counts for
@@ -209,14 +210,6 @@ autocmd FileType cpp setlocal tabstop=2 shiftwidth=2 softtabstop=2
 "-----------------------------------------------------------------------------"
 "     REMEMBER, :verbose *map (imap, nnoremap, etc) IS YOUR BEST FRIEND!!!
 "-----------------------------------------------------------------------------"
-" Let's make it easy to edit this file (mnemonic for the key sequence is
-" 'e'dit 'v'imrc)
-nnoremap <silent> ,ev <C-W>v :e $MYVIMRC<CR>
-
-" And to source this file as well (mnemonic for the key sequence is
-" 's'ource 'v'imrc)
-nmap <silent> ,sv :so $MYVIMRC<CR>
-
 " Turn off search highlight until the next search
 " useful once you've found what you were looking for
 nmap <silent> ,l :noh<CR>
@@ -244,15 +237,7 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Map Tab to % to go to matching bracket/parenthesis pair
-" frankly because % is annoying to type
-nmap <Tab> %
-vmap <Tab> %
-
-" Paste mode FTW
-":map <F10> :set invpaste<cr>
-
-" Another paste mode?
+" Paste mode
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 
